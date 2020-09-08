@@ -6,12 +6,12 @@
 
 # HOW TO USE THE APPLICATION
 The application works in this way: when you don't show a Hiro Marker to the camera, then nothing is displayed. So you have to do that in order to see something appearing on the screen. But what happens if the marker is not being tracked by the software anymore? Normally, nothing happens expect that the object disappears. Though, in this application when the marker is shown to the camera the object appears in the middle of the screen! Moreover you have the possibility to:
-* ROTATE the object by:
-** desktop: dragging the object around
-** mobile: panning on the screen
-* ZOOM IN/ZOOM OUT the object by:
-** desktop: either +/- buttons on the up-right corner of the screen and scrollwheel
-** mobile: pinch the object
+### ROTATE
+* **Desktop:** dragging the object around
+* **Mobile:** panning on the screen
+### ZOOM IN/ZOOM OUT
+* **Desktop:** either +/- buttons on the up-right corner of the screen and scrollwheel
+* **Mobile:** pinch the object
 
 # NOTES
 * Not responsive so far

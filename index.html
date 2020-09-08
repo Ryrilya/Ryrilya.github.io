@@ -24,7 +24,7 @@
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs>
+  <a-scene embedded arjs='sourceType: webcam;'>
     <!--a-marker type='pattern' url='https://rawgit.com/germanviscuso/AR.js/master/data/data/patt.gafas'-->
     <a-marker preset='hiro' id="marker" out-of-focus>
       <a-entity id="marker-content" geometry="primitive: box" material="color: red; opacity: 0.8" position="0 0.5 0"
@@ -33,7 +33,7 @@
     </a-marker>
 
     <a-entity id="content-markerLost" position="0 0 -5" scale="0.5 0.5 0.5" foo></a-entity>
-    <a entity id="camera" camera></a-entity>
+    <a-entity id="camera" camera></a-entity>
   </a-scene>
 
   <script src="js/main.js"></script>

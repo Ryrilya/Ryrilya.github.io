@@ -6,29 +6,77 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-#stats-button {
+#show-content-btn {
+  display: none;
   position: fixed;
-  bottom: 10px;
+  top: 10px;
   left: 10px;
   z-index: 1;
   width: 200px;
   height: 50px;
-  margin: 0 auto;
-  margin-top: 20px;
   padding: 10px 20px;
-  background: #1e2c4f;
+  background: #fff;
   border: none;
   border-radius: 0;
-  color: 	#eee;
+  color: 	#000;
+  font-weight: bold;
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease;
 }
 
-#stats-button:hover { 
-  background: #9d74a0;
+#show-content-btn:hover { 
+  background: #caefff;
   cursor: pointer;
+  font-weight: bold;
 }
 
-#stats-button:focus {
+#show-content-btn:active {
+  background: #1893f8;
+  color: #fff;
+}
+
+#show-content-btn:focus {
+  outline: none;
+}
+
+#model-controls-btns {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.zoom-btn {
+  margin-bottom: 5px;
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  color: 	#000;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 6px -6px #090909;
+}
+
+.zoom-btn:hover {
+  background: #caefff;
+}
+
+.zoom-btn:active {
+  background: #1893f8;
+  color: #fff;
+  outline: none;
+}
+
+.zoom-btn:focus {
   outline: none;
 }

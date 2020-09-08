@@ -20,20 +20,22 @@
   <script src="https://raw.githack.com/AR-js-org/AR.js/3.2.1/aframe/build/aframe-ar-nft.js"></script>
   <script src="js/hammer.min.js"></script>
   <script src="js/aframe-components.js"></script>
-  <script src="js/main.js"></script>
   <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='sourceType: webcam;'>
+  <a-scene embedded arjs>
     <!--a-marker type='pattern' url='https://rawgit.com/germanviscuso/AR.js/master/data/data/patt.gafas'-->
-    <a-marker preset='hiro' id="marker" out-of-focus-gltf>
-      <a-entity id="marker-content" position="0 0.5 0" gltf-model="url(models/fox/fox.gltf)" scale="0.01 0.01">
+    <a-marker preset='hiro' id="marker" out-of-focus>
+      <a-entity id="marker-content" geometry="primitive: box" material="color: red; opacity: 0.8" position="0 0.5 0"
+        animation="property: position; to: 0 0 -5; startEvents: center">
       </a-entity>
     </a-marker>
 
     <a-entity id="content-markerLost" position="0 0 -5" scale="0.5 0.5 0.5" foo></a-entity>
-    <a-entity id="camera" camera></a-entity>
+    <a entity id="camera" camera></a-entity>
   </a-scene>
+
+  <script src="js/main.js"></script>
 
 </html>

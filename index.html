@@ -1,45 +1,25 @@
-<!-- 
-  Title: Closing content with user input in the scene | Demo
-
-  Description: The purpose of this demo is to display content (or closing it) by clicking on the button.
-
-  Notes:
-  • Not responsive so far
-  
-  Author: Federico Chilese
-  Date: 2020/09/4
--->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chiusura contenuto da user input | Demo</title>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Location Based (GPS - SLAM)</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/3.2.1/aframe/build/aframe-ar-nft.js"></script>
-  <script src="js/hammer.min.js"></script>
-  <script src="js/aframe-components.js"></script>
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 </head>
 
-<body style='margin : 0px; overflow: hidden;'>
-  <button type="button" id="show-content-btn">Close Content</button>
-  <div id="model-controls-btns" style="display: none;">
-    <button tpye="button" class="zoom-btn">+</button>
-    <button tpye="button" class="zoom-btn">-</button>
-  </div>
-  <a-scene embedded arjs='sourceType: webcam;' vr-mode-ui="false">
-    <!--a-marker type='pattern' url='https://rawgit.com/germanviscuso/AR.js/master/data/data/patt.gafas'-->
-    <a-marker preset='hiro' id="marker" out-of-focus-gltf>
-      <a-entity id="marker-content" position="0 0.5 0" gltf-model="url(models/fox/fox.gltf)" scale="0.01 0.01 0.01">
-      </a-entity>
-    </a-marker>
-
-    <a-entity id="content-markerLost" position="0 0 -5" scale="0.5 0.5 0.5" foo></a-entity>
-    <a-entity id="camera" camera></a-entity>
+<body style='margin: 0; overflow: hidden;'>
+  <a-scene vr-mode-ui="enabled: false" embedded
+    arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+    <a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15"
+      gps-entity-place="longitude: 11.326640; latitude: 45.526230;" animation-mixer />
+    <a-camera gps-camera rotation-reader></a-camera>
   </a-scene>
-
-  <script src="js/main.js"></script>
+</body>
 
 </html>

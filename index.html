@@ -14,7 +14,7 @@
 
 <body style="margin: 0; overflow: hidden;">
     <div id="version">
-        <p><b>Last update:</b> removed maxDistance</p>
+        <p><b>Last update:</b> removed position</p>
     </div>
 
     <a-scene embedded loading-screen="enabled: false;" vr-mode-ui="false"
@@ -25,8 +25,7 @@
 
         <a-camera gps-camera="positionMinAccuracy: 100" rotation-reader id="camera">
         </a-camera>
-        <a-box color="red" opacity="0.7" scale="1 1 1" position="0 0 -15"
-            gps-entity-place="latitude: 45.6731; longitude: 11.9589"></a-box>
+        <a-box color="red" opacity="0.7" scale="1 1 1" gps-entity-place="latitude: 45.6731; longitude: 11.9589"></a-box>
         <!-- <a-entity look-at="[gps-camera]" animation-mixer="loop: repeat" gltf-model="#animated-asset"
             scale="0.15 0.15 0.15" position="0 0 -15" gps-entity-place="latitude: 45.6731; longitude: 11.9589"
             id="magnemite">

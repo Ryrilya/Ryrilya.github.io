@@ -23,7 +23,7 @@
             <a-asset-item id="animated-asset" src="assets/asset.gltf"></a-asset-item>
         </a-assets>
 
-        <a-camera gps-camera rotation-reader id="camera"></a-camera>
+        <a-camera gps-camera="maxDistance: 5" rotation-reader id="camera"></a-camera>
         <a-entity look-at="[gps-camera]" animation-mixer="loop: repeat" gltf-model="#animated-asset"
             scale="0.15 0.15 0.15" position="0 0 -15" gps-entity-place="latitude: 45.6731; longitude: 11.9589"
             id="magnemite">

@@ -1,22 +1,8 @@
-var longitude = document.querySelector("#longitude");
-var latitude = document.querySelector("#latitude");
-var button = document.querySelector("#get-coordinates-btn");
+var button = document.querySelector("#calculate-distance-btn");
+var text = document.querySelector("#distance-text");
 
 button.addEventListener("click", () => {
-  console.log("clicked!");
-  if (navigator.geolocation) {
-    console.log("Getting current position...");
-    navigator.geolocation.getCurrentPosition(showPosition);
-  }
-  else {
-    latitude.value = "Geolocation is not supported by this browser";
-    longitude.value = "Geolocation is not supported by this browser";
-  }
+  const distanceMsg = document.querySelector('[gps-entity-place]').getAttribute('distanceMsg');
+  text.value = distanceMsg;
+  console.log(distanceMsg);
 });
-
-function showPosition(position) {
-  console.log("retrieving...");
-  latitude.value = longitude.value = "Retrieving value";
-  latitude.value = position.coords.latitude;
-  longitude.value = position.coords.longitude;
-}

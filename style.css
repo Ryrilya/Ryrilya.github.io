@@ -4,31 +4,14 @@
   box-sizing: border-box;
 }
 
-#distance-container {
+
+#version {
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
   position: fixed;
   z-index: 1;
-  top: 10px;
-  left: 10px;
-  display: flex;
-}
-
-#calculate-distance-btn {
-  background-color: #333;
-  color: #fff;
+  bottom: 0;
+  width: 100%;
   padding: 10px 15px;
-  border: none;
-  border-radius: 0;
-}
-
-#calculate-distance-btn:hover {
-  cursor: pointer;
-}
-
-#distance-text {
-  margin-left: 5px;
-  border-radius: 0;
-  background-color: #fff;
-  color: #000;
-  border: none;
-  width: 200px;
+  margin: 0 auto;
 }

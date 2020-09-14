@@ -13,27 +13,26 @@
 </head>
 
 <body style="margin: 0; overflow: hidden;">
-    <div id="distance-container">
-        <button type="button" id="calculate-distance-btn">Calculate distance</button>
-        <input type="text" id="distance-text" disabled>
-        <input type="text" id="version" disabled value="Added maxDistance to gps-camera">
+    <div id="version">
+        <p><b>Last update:</b> added maxDistance to gps-camera</p>
     </div>
 
-    <a-scene embedded loading-screen="enabled: false;"
+    <a-scene embedded loading-screen="enabled: false;" vr-mode-ui="false"
         arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;">
         <a-assets>
             <a-asset-item id="animated-asset" src="assets/asset.gltf"></a-asset-item>
         </a-assets>
 
+        <a-camera gps-camera rotation-reader id="camera"></a-camera>
         <a-entity look-at="[gps-camera]" animation-mixer="loop: repeat" gltf-model="#animated-asset"
-            scale="0.15 0.15 0.15" position="0 0 -5" gps-entity-place="latitude: 45.6731; longitude: 11.9589;"
+            scale="0.15 0.15 0.15" position="0 0 -15" gps-entity-place="latitude: 45.6731; longitude: 11.9589"
             id="magnemite">
         </a-entity>
 
-        <a-camera gps-camera="alert: true; positionMinAccuracy: 1; maxDistance: 3" rotation-reader></a-camera>
-    </a-scene>
 
+    </a-scene>
     <script src="./main.js"></script>
+
 </body>
 
 </html>

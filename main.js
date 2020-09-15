@@ -1,1 +1,0 @@
-console.dir(document.querySelector('[gps-camera]').getAttribute('alert'));

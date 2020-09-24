@@ -8,7 +8,7 @@ var Place = /** @class */ (function () {
 window.onload = function () {
     var places = staticLoadPlaces();
     renderPlaces(places);
-    console.log('\nRemoved simulated lat / lgt');
+    console.log('\nAdded Donmccurdy\'s library');
 };
 function staticLoadPlaces() {
     return [

@@ -8,6 +8,7 @@ var Place = /** @class */ (function () {
 window.onload = function () {
     var places = staticLoadPlaces();
     renderPlaces(places);
+    console.log('\nRemoved simulated lat / lgt');
 };
 function staticLoadPlaces() {
     return [

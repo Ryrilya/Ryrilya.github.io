@@ -8,7 +8,7 @@ var Place = /** @class */ (function () {
 window.onload = function () {
   var places = staticLoadPlaces();
   renderPlaces(places);
-  console.log("\nAdded Donmccurdy's library");
+  console.log("\nChanged GPS coordinates");
 };
 function staticLoadPlaces() {
   return [
@@ -33,7 +33,6 @@ function renderPlaces(places) {
     );
     model.setAttribute("id", "model");
     model.setAttribute("gltf-model", "./assets/magnemite/scene.gltf");
-    model.setAttribute("position", "0 0 -30");
     model.setAttribute("rotation", "0 180 0");
     model.setAttribute("animation-mixer", "");
     model.setAttribute("scale", "0.5 0.5 0.5");
@@ -41,6 +40,7 @@ function renderPlaces(places) {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
     });
     scene.appendChild(model);
+    model.setAttribute("position", "0 0 -30");
   });
 }
 

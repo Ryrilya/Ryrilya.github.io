@@ -8,7 +8,6 @@ var Place = /** @class */ (function () {
 window.onload = function () {
   var places = staticLoadPlaces();
   renderPlaces(places);
-  console.log("\nChanged GPS coordinates");
 };
 function staticLoadPlaces() {
   return [
@@ -57,16 +56,12 @@ function showCoordinatesRealTime() {
     longitude.value = location.coords.longitude;
 
     const distanceMsgValue = model.getAttribute("distancemsg");
-    distanceMsgValue == null
-      ? (distanceMsg.value = "Undefined")
-      : (distanceMsg.value = distanceMsgValue);
+    distanceMsg.value =
+      distanceMsgValue == null ? "Not yet tracked" : distanceMsgValue;
   });
 }
 
 setInterval(showCoordinatesRealTime, 1000);
 
 const btn = document.querySelector("#center-btn");
-btn.addEventListener("click", () => {
-  let model = document.querySelector("#model");
-  model.setAttribute("position", "0 0 -30");
-});
+btn.addEventListener("click", () => model.setAttribute("position", "0 0 -30"));

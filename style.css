@@ -21,6 +21,26 @@ body {
   z-index: 1;
 }
 
+.coordinates-container button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  background: #192a56;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.coordinates-container button:hover {
+  background: #284388;
+}
+
+.coordinates-container button:active,
+.coordinates-container button:focus {
+  outline: none;
+}
+
 .coordinate {
   display: grid;
   grid-template-columns: 100px 150px;

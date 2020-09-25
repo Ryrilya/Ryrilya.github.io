@@ -57,3 +57,9 @@ function getCoordinates() {
 }
 
 setInterval(getCoordinates, 1000);
+
+const btn = document.querySelector("#center-btn");
+btn.addEventListener("click", () => {
+  let model = document.querySelector("#model");
+  model.setAttribute("position", "0 0 -30");
+});

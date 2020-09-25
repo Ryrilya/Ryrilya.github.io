@@ -3,8 +3,8 @@
 function loadPlaces(position) {
   var params = {
     radius: 300,
-    clientId: "<your-client-id>",
-    clientSecret: "<your-client-secret>",
+    clientId: "SAAG2KJSSXRU45K0OHRPMRMFBGNHHC1F45D5JAXYHTZ0HJUR",
+    clientSecret: "3SPETMYIWUUT1R1CB0XBUJGCFYMHAOVVODOPNMVCKPVQ0AFD",
     version: "20300101",
   };
   // CORS Proxy to avoid CORS problems

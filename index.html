@@ -11,33 +11,30 @@
   </head>
 
   <body style="margin: 0; overflow: hidden">
-    <div id="wrapper">
-      <div class="coordinates-container">
-        <div class="coordinate">
-          <label for="latitude"><small>Latitude</small></label>
-          <input type="text" name="coordinates" id="latitude" disabled />
-        </div>
-        <div class="coordinate">
-          <label for="longitude"><small>Longitude</small></label>
-          <input type="text" name="coordinates" id="longitude" disabled />
-        </div>
-
-        <button id="center-btn">Center model</button>
+    <div class="coordinates-container">
+      <div class="coordinate">
+        <label for="latitude"><small>Latitude</small></label>
+        <input type="text" name="coordinates" id="latitude" disabled />
       </div>
-
-      <a-scene
-        gps-camera-debug
-        embedded
-        arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
-        vr-mode-ui="enabled: false"
-      >
-        <a-camera gps-camera rotation-reader minDistance="10"></a-camera>
-      </a-scene>
+      <div class="coordinate">
+        <label for="longitude"><small>Longitude</small></label>
+        <input type="text" name="coordinates" id="longitude" disabled />
+      </div>
+      <div class="coordinate distanceMsg-container">
+        <label for="distance-msg"><small>Distance message</small></label>
+        <input type="text" name="coordinates" id="distance-msg" disabled />
+      </div>
+      <button id="center-btn">Center model</button>
     </div>
 
-    <div id="warning-message">
-      This website is only available in landscape mode.
-    </div>
+    <a-scene
+      gps-camera-debug
+      embedded
+      arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+    >
+      <a-camera gps-camera rotation-reader minDistance="10"></a-camera>
+    </a-scene>
 
     <script src="main.js"></script>
   </body>

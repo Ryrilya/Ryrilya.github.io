@@ -56,6 +56,19 @@ body {
 }
 
 @media only screen and (max-width: 600px) and (orientation: portrait) {
+  #wrapper {
+    display: none;
+  }
+  #warning-message {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  #warning-message {
+    display: none;
+  }
+
   .coordinates-container {
     top: 0;
     left: 0;

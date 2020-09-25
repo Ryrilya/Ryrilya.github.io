@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 //import { Place } from './models/place';
+=======
+// "use strict";
+// exports.__esModule = true;
+>>>>>>> 4d4b9edcd86e29d1044785a00e934c0c4c0331be
 // getting places from APIs
 function loadPlaces(position) {
     var params = {

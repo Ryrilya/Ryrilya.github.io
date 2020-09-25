@@ -1,67 +1,63 @@
-var Place = /** @class */ (function () {
-  function Place(name, location) {
-    this.name = name;
-    this.location = location;
-  }
-  return Place;
-})();
-window.onload = function () {
-  var places = staticLoadPlaces();
-  renderPlaces(places);
-};
-function staticLoadPlaces() {
-  return [
-    {
-      name: "Magnemite",
-      location: {
-        lat: 45.6730203,
-        lng: 11.9589757,
-      },
-    },
-  ];
-}
-
-var model = null;
-
-function renderPlaces(places) {
-  var scene = document.querySelector("a-scene");
-  places.forEach(function (place) {
-    var latitude = place.location.lat;
-    var longitude = place.location.lng;
-
-    model = document.createElement("a-entity");
-    model.setAttribute("id", "model");
-    model.setAttribute(
-      "gps-entity-place",
-      `latitude: ${latitude}; longitude: ${longitude};`
-    );
-    model.setAttribute("gltf-model", "./assets/magnemite/scene.gltf");
-    model.setAttribute("rotation", "0 0 0");
-    model.setAttribute("position", "0 0 -30");
-    model.setAttribute("animation-mixer", "");
-    model.setAttribute("scale", "0.5 0.5 0.5");
-    model.addEventListener("loaded", function () {
-      window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+function loadPlaces(position) {
+  var params = {
+    radius: 300,
+    clientId: "SAAG2KJSSXRU45K0OHRPMRMFBGNHHC1F45D5JAXYHTZ0HJUR",
+    clientSecret: "3SPETMYIWUUT1R1CB0XBUJGCFYMHAOVVODOPNMVCKPVQ0AFD",
+    version: "20300101",
+    limit: 30,
+  };
+  var corsProxy = "https://cors-anywhere.herokuapp.com/";
+  // Foursquare API
+  const endpoint = `${corsProxy}https://api.foursquare.com/v2/venues/search?intent=checkin
+        &ll=${position.latitude},${position.longitude}
+        &radius=${params.radius}
+        &client_id=${params.clientId}
+        &client_secret=${params.clientSecret}
+        &limit=30 
+        &v=${params.version}`;
+  return fetch(endpoint)
+    .then(function (res) {
+      return res.json().then(function (resp) {
+        return resp.response.venues;
+      });
+    })
+    ["catch"](function (err) {
+      console.error("Error with places API", err);
     });
-    scene.appendChild(model);
-  });
 }
-
-const latitude = document.querySelector("#latitude");
-const longitude = document.querySelector("#longitude");
-const distanceMsg = document.querySelector("#distance-msg");
-function showCoordinatesRealTime() {
-  navigator.geolocation.getCurrentPosition((location) => {
-    latitude.value = location.coords.latitude;
-    longitude.value = location.coords.longitude;
-
-    const distanceMsgValue = model.getAttribute("distancemsg");
-    distanceMsg.value =
-      distanceMsgValue == null ? "Not yet tracked" : distanceMsgValue;
-  });
-}
-
-setInterval(showCoordinatesRealTime, 1000);
-
-const btn = document.querySelector("#center-btn");
-btn.addEventListener("click", () => model.setAttribute("position", "0 0 -30"));
+window.onload = function () {
+  var scene = document.querySelector("a-scene");
+  // get current user location
+  return navigator.geolocation.getCurrentPosition(
+    function (position) {
+      // then use it to load remote APIs some places nearby
+      loadPlaces(position.coords).then(function (places) {
+        places.forEach(function (place) {
+          var latitude = place.location.lat;
+          var longitude = place.location.lng;
+          // add place name
+          var placeText = document.createElement("a-link");
+          placeText.setAttribute(
+            "gps-entity-place",
+            "latitude: " + latitude + "; longitude: " + longitude
+          );
+          placeText.setAttribute("title", place.name);
+          placeText.setAttribute("scale", "15 15 15");
+          placeText.addEventListener("loaded", function () {
+            window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+            console.log("Place text loaded");
+          });
+          scene.appendChild(placeText);
+        });
+      });
+    },
+    function (err) {
+      return console.error("Error in retrieving position", err);
+    },
+    {
+      enableHighAccuracy: true,
+      maximumAge: 0,
+      timeout: 27000,
+    }
+  );
+};

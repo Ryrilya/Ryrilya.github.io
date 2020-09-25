@@ -42,7 +42,7 @@ window.onload = function () {
             "latitude: " + latitude + "; longitude: " + longitude
           );
           placeText.setAttribute("title", place.name);
-          placeText.setAttribute("scale", "15 15 15");
+          placeText.setAttribute("scale", "5 5 5");
           placeText.addEventListener("loaded", function () {
             window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
             console.log("Place text loaded");

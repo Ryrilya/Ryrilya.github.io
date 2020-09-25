@@ -4,12 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Places | GeoAR.js Demo</title>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/3.2.1/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden">
+    <div class="coordinates-container">
+      <div class="coordinate">
+        <label for="latitude"><small>Latitude</small></label>
+        <input type="text" name="coordinates" id="latitude" disabled />
+      </div>
+      <div class="coordinate">
+        <label for="longitude"><small>Longitude</small></label>
+        <input type="text" name="coordinates" id="longitude" disabled />
+      </div>
+    </div>
+
     <a-scene
       embedded
       arjs="sourceType: webcam; sourceWidth: 1280; sourceHeight: 960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"

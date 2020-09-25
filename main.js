@@ -43,3 +43,17 @@ function renderPlaces(places) {
     scene.appendChild(model);
   });
 }
+
+const latitude = document.querySelector("#latitude");
+const longitude = document.querySelector("#longitude");
+function getCoordinates() {
+  navigator.geolocation.getCurrentPosition((location) => {
+    latitude.value = location.coords.latitude;
+    longitude.value = location.coords.longitude;
+
+    // console.log("Latitude" + location.coords.latitude);
+    // console.log("Longitude" + location.coords.longitude);
+  });
+}
+
+setInterval(getCoordinates, 1000);

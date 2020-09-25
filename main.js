@@ -8,7 +8,7 @@ var Place = /** @class */ (function () {
 window.onload = function () {
   var places = staticLoadPlaces();
   renderPlaces(places);
-  console.log("\nAdded Donmccurdy's library");
+  console.log("\nChanged GPS coordinates");
 };
 function staticLoadPlaces() {
   return [

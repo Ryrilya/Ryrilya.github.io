@@ -1,4 +1,4 @@
-import { Place } from './models/place';
+//import { Place } from './models/place';
 
 // getting places from APIs
 function loadPlaces(position) {
@@ -42,7 +42,7 @@ window.onload = () => {
     // than use it to load from remote APIs some places nearby
     loadPlaces(position.coords)
       .then((places) => {
-        places.forEach((place: Place) => {
+        places.forEach((place) => {
           const latitude = place.location.lat;
           const longitude = place.location.lng;
 

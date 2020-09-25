@@ -1,5 +1,5 @@
-"use strict";
-exports.__esModule = true;
+// "use strict";
+// exports.__esModule = true;
 // getting places from APIs
 function loadPlaces(position) {
   var params = {

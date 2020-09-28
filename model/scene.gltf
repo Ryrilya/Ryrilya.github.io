@@ -1,0 +1,272 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 16779,
+      "max": [
+        1.382140040397644,
+        1.6443719863891602,
+        3.2132630348205566
+      ],
+      "min": [
+        -1.382140040397644,
+        -1.3662539720535278,
+        -0.82554298639297485
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 201348,
+      "componentType": 5126,
+      "count": 16779,
+      "max": [
+        0.99999856948852539,
+        1,
+        0.99993050098419189
+      ],
+      "min": [
+        -0.99999856948852539,
+        -0.99999463558197021,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 16779,
+      "max": [
+        0.99995243549346924,
+        1,
+        0.99990624189376831,
+        1
+      ],
+      "min": [
+        -0.9999995231628418,
+        -1,
+        -0.99999463558197021,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 16779,
+      "max": [
+        0.99276500940322876,
+        0.98912501335144043
+      ],
+      "min": [
+        0.00684700021520257,
+        0.0061329999007284641
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 92622,
+      "max": [
+        16778
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "JuanG3D (https://sketchfab.com/juang3d)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/fall-guys-trice-skin-a14a65478595405088b0aa4a48d893dd",
+      "title": "Fall Guys Trice skin"
+    },
+    "generator": "Sketchfab-9.20.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 370488,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 134232,
+      "byteOffset": 370488,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 402696,
+      "byteOffset": 504720,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 268464,
+      "byteOffset": 907416,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1175880,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Trice_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/Trice_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Trice_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Trice",
+      "normalTexture": {
+        "index": 2,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "occlusionTexture": {
+        "index": 1,
+        "strength": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 0.59999999999999998
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1.060960039467318e-05,
+        0.26918113231658936,
+        0,
+        1
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "FallGuys_Trice.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": ""
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}
+

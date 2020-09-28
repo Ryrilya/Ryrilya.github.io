@@ -3,7 +3,6 @@ const model = document.querySelector("#model");
 model.addEventListener("markerFound", (e) => {
   isMarkerVisible = true;
 });
-
 model.addEventListener("markerLost", (e) => {
   isMarkerVisible = false;
 });

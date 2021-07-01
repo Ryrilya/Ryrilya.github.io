@@ -1,67 +1,62 @@
-  
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Playground | Gesture interaction</title>
+		<!-- import aframe and then ar.js with image tracking / location based features -->
+		<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+		<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+		<script src="lib/hammer.min.js" defer></script>
+		<script>
+			AFRAME.registerComponent("british-cavalry-soldier-component", {
+				init: () => {
+					console.log('british-cavalry-soldier-component has initiated.');
+					const marker = document.querySelector('#gallipoli-marker');
+					const model = document.querySelector('#british-cavalry-soldier');
+					
+					if (typeof marker === null || typeof marker === undefined)
+						throw new Error('Marker is either null or undefined');
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playground | Gesture interaction</title>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-  <style>
-    body {
-      margin: 0;
-      overflow: hidden;
-    }
+					model.addEventListener('model-loaded', () => {
+						console.log('%cModel has loaded successfully!', 'color: green;');
+					});
+				},
+			});
+		</script>
+	</head>
 
-    .current-version {
-      position: fixed;
-      top: 2rem;
-      left: 2rem;
-      background-color: red;
-      z-index: 2;
-      color: white;
-      font-weight: bold;
-      font-family: sans-serif;
-      padding: 1rem 2rem;
-    }
-  </style>
-</head>
+	<body style="margin: 0; overflow: hidden">
+		<a-scene
+			vr-mode-ui="enabled: false;"
+			renderer="logarithmicDepthBuffer: true;"
+			embedded
+			arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1920; displayHeight: 1080;"
+		>
+			<a-assets>
+				<a-asset-item id="british-cavalry-soldier" src="/playground/gesture-interaction/assets/models/british-cavalry-soldier/scene.gltf"></a-asset-item>
+			</a-assets>
 
-<body style="margin: 0; overflow: hidden;">
-  <a-scene 
-    vr-mode-ui="enabled: false;"
-    renderer="logarithmicDepthBuffer: true;"
-    embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1920; displayHeight: 1080;"
-  >
-<!--   https://github.com/yourusername/yourusername.github.io/blob/master/script.js   -->
-    <a-nft 
-      type="nft" 
-      url="https://ryrilya.github.io/assets/img/lucifer/luciferHT"
-      smooth="true"
-      smoothCount="10" 
-      smoothTolerance=".01"
-      smoothThreshold="5"
-      emitevents="true"
-      id="image-marker"
-    >
-      <a-box color="purple" width="5" height="5" position="0 0.5 0"></a-box>
-    </a-nft>
-    <a-entity camera></a-entity>
-  </a-scene>
+			<a-nft
+				type="nft"
+				url="/playground/gesture-interaction/assets/img/gallipoli/GallipoliMarker"
+				smooth="true"
+				smoothCount="10"
+				smoothTolerance=".01"
+				smoothThreshold="5"
+				emitevents="true"
+				id="gallipoli-marker"
+			>
+				<a-entity 
+					british-cavalry-soldier-component 
+					id="british-cavalry-soldier" 
+					gltf-model="#british-cavalry-soldier"
+					position="50 0.5 0"
+					rotation="0 90 0"></a-entity>
+			</a-nft>
 
-  <div class="current-version">
-    v1.0.2
-  </div>
-
-  <script defer>
-   const image = document.querySelector('#image-marker');
-
-   image.addEventListener('markerFound', () => alert('marker found'));
-   image.addEventListener('markerLost', () => alert('marker lost'))
-  </script>
-</body>
-
+			<a-entity camera></a-entity>
+		</a-scene>
+	</body>
 </html>

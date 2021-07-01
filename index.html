@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gesture Demo</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="js/gesture-detector.js"></script>
-    <script src="js/gesture-handler.js"></script>
-  </head>
-  <body style="margin: 0; overflow: hidden">
-    <a-scene
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1920; displayHeight: 1080;"
-      gesture-detector
-      vr-mode-ui="enabled: false"
-      renderer="logarithmicDepthBuffer: true;"
-      id="scene"
-    >
-      <a-marker
-        preset="hiro"
-        smooth="true"
-        smoothCount="5"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse"
-      >
-        <a-entity
-          gltf-model="url(./model/scene.gltf)"
-          scale="0.5 0.5 0.5"
-          position="0 0.5 0"
-          class="clickable"
-          gesture-handler="minScale: 0.25; maxScale: 10"
-          id="model"
-        >
-        </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
 
-    <script src="main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playground | Gesture interaction</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+  <a-scene 
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+    embedded
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1920; displayHeight: 1080;"
+  >
+    <!-- <a-assets>
+      <a-asset-item id="notebook" src="/playground/assets/notebook/notebook.obj"></a-asset-item>
+    </a-assets> -->
+
+    <a-nft 
+      type="nft" 
+      url="/playground/gesture-interaction/assets/img/lucifer/luciferHT"
+      smooth="true"
+      smoothCount="10" 
+      smoothTolerance=".01"
+      smoothThreshold="5"
+      emitevents="true"
+      id="image-marker"
+    >
+      <a-box color="purple" width="5" height="5" position="0 0.5 0"></a-box>
+    </a-nft>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script defer>
+   const image = document.querySelector('#image-marker');
+
+   image.addEventListener('markerFound', () => console.log('marker found'));
+   image.addEventListener('markerLost', () => console.log('marker lost'))
+  </script>
+</body>
+
 </html>

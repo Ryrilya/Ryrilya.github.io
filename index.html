@@ -1,3 +1,4 @@
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +9,24 @@
   <title>Playground | Gesture interaction</title>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .current-version {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background-color: red;
+      z-index: 2;
+      color: white;
+      font-weight: bold;
+      font-family: sans-serif;
+      padding: 1rem 2rem;
+    }
+  </style>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -17,10 +36,6 @@
     embedded
     arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1920; displayHeight: 1080;"
   >
-    <!-- <a-assets>
-      <a-asset-item id="notebook" src="/playground/assets/notebook/notebook.obj"></a-asset-item>
-    </a-assets> -->
-
     <a-nft 
       type="nft" 
       url="/Ryrilya.github.io/assets/img/lucifer/luciferHT"
@@ -36,21 +51,15 @@
     <a-entity camera></a-entity>
   </a-scene>
 
+  <div class="current-version">
+    v1.0.0
+  </div>
+
   <script defer>
    const image = document.querySelector('#image-marker');
 
-   image.addEventListener('markerFound', () => {
-     const div = document.createElement('div');
-     div.style.position = 'absolute';
-     div.style.top = '0';
-     div.style.left = '0';
-     div.style.backgroundColor = 'red';
-     div.style.color = 'white';
-     document.appendChild(div);
-     
-     console.log('marker found');
-   });
-   image.addEventListener('markerLost', () => console.log('marker lost'))
+   image.addEventListener('markerFound', () => alert('marker found'));
+   image.addEventListener('markerLost', () => alert('marker lost'))
   </script>
 </body>
 
